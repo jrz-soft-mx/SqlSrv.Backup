@@ -11,6 +11,26 @@ PM> Install-Package SqlSrv.Backup -Version 1.1.0
 
 Backup and recover your database only call with connection, database name, backup file path, addicionaly for backup your can compress the file, verifly the file and checksum. for recover yor can set zip for compresed files, and replace database, Data File Path and Log File Path
 
+### Fast Backup database without Compression
+Example for Fast Backup database without Compression
+
+````csharp
+SqlConnection Con = new SqlConnection(@"Data Source=LOCALHOST\SQL2012; User id=sa; Password=MyPwd");
+string strDataBase = "MyDataBase";
+string strFile = @"C:\backup\" + strDataBase + "_" + DateTime.Now.ToString("yyyyMMddTHHmmss") + ".bak";
+SqlSrv.Backup.Task.BackUp(Con, strDataBase, strFile);
+````
+
+### Fast Recover Database without compression
+Example for Fast recover database without Compression
+
+````csharp
+SqlConnection Con = new SqlConnection(@"Data Source=LOCALHOST\SQL2012; User id=sa; Password=MyPwd");
+string strDataBase = "MyDataBase_New";
+string strFileBackup = @"C:\backup\MyDataBase_20210830T102729.bak";
+SqlSrv.Backup.Task.Restore(Con, strDataBase, strFileBackup);
+````
+
 ### Backup database with Compression, verifly and checksum
 Example for Backup database with Compression, verifly and checksum
 
