@@ -8,13 +8,23 @@ namespace SqlSrv.Backup
 {
     public class Task
     {
-        public bool Restore(SqlConnection Connection, string strDataBase, string strBackupPath, bool bolReplace = false, bool bolZip = false, string strDataPath = null, string strLogPath = null)
+        //Restore
+        #region
+        public static bool Restore(SqlConnection Connection, string strDataBase, string strBackupPath, bool bolReplace = false, bool bolZip = false, string strDataPath = null, string strLogPath = null)
         {
             bool bolRes = false;
             try
             {
+                if (!File.Exists(strBackupPath))
+                {
+                    throw new Exception("The file dosen't exist");
+                }
                 if (bolZip)
                 {
+					if (Path.GetExtension(strBackupPath).ToLower() != ".zip")
+					{
+						throw new Exception("The file extension needs be .zip");
+					}
                     ZipFile zipBackup = ZipFile.Read(strBackupPath);
                     foreach (ZipEntry e in zipBackup.Where(x => x.FileName.ToLower().EndsWith(".bak")))
                     {
@@ -22,6 +32,10 @@ namespace SqlSrv.Backup
                         e.Extract(Path.GetDirectoryName(strBackupPath), ExtractExistingFileAction.OverwriteSilently);
                     }
                 }
+				if (Path.GetExtension(strBackupPath).ToLower() != ".bak")
+				{
+					throw new Exception("The file extension needs be .bak");
+				}
                 if (strDataPath == null || strLogPath == null)
                 {
                     string strPath = "SELECT SERVERPROPERTY('instancedefaultdatapath') AS[datapath], SERVERPROPERTY('instancedefaultlogpath') AS[logpath]";
@@ -34,6 +48,14 @@ namespace SqlSrv.Backup
                         strLogPath = strLogPath == null ? RdrPath["logpath"].ToString() + strDataBase + "_log.ldf" : strLogPath;
                     }
                     CmdPath.Connection.Close();
+                }
+                if (Path.GetExtension(strDataPath).ToLower() != ".mdf")
+                {
+                    throw new Exception("Data File path extension needs be .mdf");
+                }
+                if (Path.GetExtension(strDataPath).ToLower() != ".ldf")
+                {
+                    throw new Exception("log File path extension needs be .ldf");
                 }
                 string strDataName = string.Empty;
                 string strLogName = string.Empty;
@@ -73,7 +95,10 @@ namespace SqlSrv.Backup
             }
             return bolRes;
         }
+        #endregion
 
+        //Backup
+        #region
         public static bool BackUp(SqlConnection Connection, string strDataBase, string strFilePath, bool bolVer = false, bool bolZip = false, bool bolCheckSum = false)
         {
             bool bolRes = false;
@@ -127,5 +152,6 @@ namespace SqlSrv.Backup
             }
             return bolRes;
         }
+        #endregion
     }
 }
