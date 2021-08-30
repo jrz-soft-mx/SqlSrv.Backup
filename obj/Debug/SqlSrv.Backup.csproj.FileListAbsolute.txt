@@ -1,0 +1,8 @@
+C:\JrzSoftMx\SqlSrv.Backup\bin\Debug\SqlSrv.Backup.dll
+C:\JrzSoftMx\SqlSrv.Backup\bin\Debug\SqlSrv.Backup.pdb
+C:\JrzSoftMx\SqlSrv.Backup\bin\Debug\Ionic.Zip.dll
+C:\JrzSoftMx\SqlSrv.Backup\obj\Debug\SqlSrv.Backup.csproj.AssemblyReference.cache
+C:\JrzSoftMx\SqlSrv.Backup\obj\Debug\SqlSrv.Backup.csproj.CoreCompileInputs.cache
+C:\JrzSoftMx\SqlSrv.Backup\obj\Debug\SqlSrv.Backup.csproj.CopyComplete
+C:\JrzSoftMx\SqlSrv.Backup\obj\Debug\SqlSrv.Backup.dll
+C:\JrzSoftMx\SqlSrv.Backup\obj\Debug\SqlSrv.Backup.pdb

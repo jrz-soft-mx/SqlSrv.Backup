@@ -1,0 +1,7 @@
+C:\JrzSoftMx\SqlSrv.Backup\bin\Release\SqlSrv.Backup.dll
+C:\JrzSoftMx\SqlSrv.Backup\bin\Release\SqlSrv.Backup.pdb
+C:\JrzSoftMx\SqlSrv.Backup\bin\Release\Ionic.Zip.dll
+C:\JrzSoftMx\SqlSrv.Backup\obj\Release\SqlSrv.Backup.csproj.CoreCompileInputs.cache
+C:\JrzSoftMx\SqlSrv.Backup\obj\Release\SqlSrv.Backup.csproj.CopyComplete
+C:\JrzSoftMx\SqlSrv.Backup\obj\Release\SqlSrv.Backup.dll
+C:\JrzSoftMx\SqlSrv.Backup\obj\Release\SqlSrv.Backup.pdb
