@@ -4,7 +4,7 @@ Tool for Backup and Restore Microsoft Sql Server Databases and compress the back
 ## The NuGet Package
 
 ````powershell
-PM> Install-Package SqlSrv.Backup -Version 1.1.0
+PM> Install-Package SqlSrv.Backup -Version 1.2.0
 ````
 
 ## How it works
